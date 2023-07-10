@@ -1,21 +1,382 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-  <title>Map</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<meta charset="UTF-8">
+<title>leaflet example simple map</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+   />
+	
+
+ 
+	
+</head>
+
+<body>
+	
+		<div id="map" style="height: 600px; margin:5rem auto;"></div>
  
 
-</head>
-<body>
- <div id="map" style="width: 800px; height: 600px; margin:5rem auto;"></div>
+		<!--#map {height: 180px;}-->
+ <!-- Make sure you put this AFTER Leaflet's CSS -->
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+     </script>
 	
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script>
-    var map = L.map('map').setView([51.505, -0.09], 13); // Example: London coordinates
+	
+			
+ <script>
+	//var map = L.map('map').setView([51.505, -0.09], 13);
+	 var map = L.map('map').setView([30, 0], 2.5);
+	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+	 
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Map data &copy; OpenStreetMap contributors'
-    }).addTo(map);
-  </script>
+// Add popup message
+let template = `
+
+<h3>Bjäresjö Church, Skåne, Sweden</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-harriet-m-sonne-de-torrens" target='_blank'>Research Profile - Harriet M. Sonne de Torrens</a>
+ </h3>
+`
+// Add popup message
+let template1 = `
+
+<h3>Paris</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-brian-price" target='_blank'>Research Profile - Dr. Brian Price</a></br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-matthew-stoddard" target='_blank'>Research Profile - Dr. Matthew Stoddard</a>
+
+ </h3>
+
+`
+// Add popup message
+let template2 = `
+
+<h3>Frankfurt</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-brian-price" target='_blank'>Research Profile - Dr. Brian Price</a>
+</h3>
+`
+
+// Add popup message
+let template3 = `
+
+<h3>Marseille</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-brian-price" target='_blank'>Research Profile - Dr. Brian Price</a></br>
+</h3>
+`
+
+// Add popup message
+let template4 = `
+
+<h3>Los Angeles</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-brian-price" target='_blank'>Research Profile - Dr. Brian Price</a></br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-louis-kaplan" target='_blank'>Dr. Louis Kaplan Research Profile</a></h3>
+
+`
+	 
+// Add popup message
+let template5 = `
+
+<h3>Cambridge, England</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-kajri-jain" target='_blank'>Research Profile - Dr. Kajri Jain</a></br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-brian-price" target='_blank'>Research Profile - Dr. Brian Price</a>
+ </h3>
+
+`
+
+// Add popup message
+let template6 = `
+
+<h3>Amsterdam</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-brian-price" target='_blank'>Research Profile - Dr. Brian Price</a>
+</h3>
+`
+
+
+// Add popup message
+let template7 = `
+
+<h3>Ribe Cathedral, Denmark</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-harriet-m-sonne-de-torrens" target='_blank'>Research Profile - Harriet M. Sonne de Torrens</a>
+ </h3>
+`
+
+// Add popup message
+let template8 = `
+
+<h3>Lucknow</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-kajri-jain" target='_blank'>Research Profile - Dr. Kajri Jain</a>
+ </h3>
+`
+
+// Add popup message
+let template9 = `
+
+<h3>Arambram, Kozhikode District, Kerala, India</br>
+
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-kajri-jain" target='_blank'>Research Profile - Dr. Kajri Jain</a>
+ </h3>
+`
+
+// Add popup message
+let template10 = `
+
+<h3>Washington, DC</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-kajri-jain" target='_blank'>Research Profile - Dr. Kajri Jain</a>
+ </h3>
+
+`
+	// Add popup message
+let template11 = `
+
+<h3>University of Turin</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-kajri-jain" target='_blank'>Research Profile - Dr. Kajri Jain</a>
+ </h3>
+`
+	 
+		// Add popup message
+let template12 = `
+
+<h3> Giri Institute of Development Studies, Lucknow</br>
+
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-kajri-jain" target='_blank'>Research Profile - Dr. Kajri Jain</a>
+ </h3>
+`
+
+	 
+		// Add popup message
+let template13 = `
+
+<h3>Singapore</br>
+ 
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-elizabeth-wijaya" target='_blank'>Research Profile - Dr. Elizabeth Wijaya</a>
+ </h3>
+`
+	
+		// Add popup message
+let template14 = `
+
+<h3>Taipei</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-elizabeth-wijaya" target='_blank'>Research Profile - Dr. Elizabeth Wijaya</a>
+ </h3>
+</div>
+`
+
+	
+		// Add popup message
+let template15 = `
+
+<h3>Bankok</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-elizabeth-wijaya" target='_blank'>Research Profile - Dr. Elizabeth Wijaya</a>
+ </h3>
+`
+
+		// Add popup message
+let template16 = `
+
+<h3>Ho Chi Minh City,Veitnam</h3>
+<div style="text-align:center">
+    <img width="150" height="150" src="images/testimage.jpeg"><br>
+<a href="https://www.utm.utoronto.ca/dvs" target='_blank'>Ho Chi Minh City,Veitnam</a>
+</div>
+`
+
+
+		// Add popup message
+let template17 = `
+
+<h3>Ann Arbor, Michigan</br>
+
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-louis-kaplan" target='_blank'>Research Profile - Dr. Louis Kaplan</a></h3>
+`
+
+
+		// Add popup message
+let template18 = `
+
+<h3>New York</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-louis-kaplan" target='_blank'>Research Profile - Dr. Louis Kaplan</a></br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-maria-hupfield" target='_blank'>Research Profile - Dr. Maria Hupfield</a>
+	 
+	 </h3>
+`
+
+		// Add popup message
+let template19 = `
+
+<h3>Los Angeles</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-louis-kaplan" target='_blank'>Research Profile - Dr. Louis Kaplan</a></h3>
+
+`
+		// Add popup message
+let template20 = `
+
+<h3>Fox Theatre</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-matthew-stoddard" target='_blank'>Research Profile - Dr. Matthew Stoddard</a>
+ </h3>
+
+`
+	 
+		// Add popup message
+let template21 = `
+
+<h3>Maine</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-maria-hupfield" target='_blank'>Research Profile - Dr. Maria Hupfield</a></h3>
+`
+
+		// Add popup message
+let template22 = `
+
+<h3>Saratoga</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-maria-hupfield" target='_blank'>Research Profile - Dr. Maria Hupfield</a>
+	 
+	 </h3>
+
+`
+	// Add popup message
+let template23 = `
+
+<h3>Montreal PQ</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-maria-hupfield" target='_blank'>Research Profile - Dr. Maria Hupfield</a>
+</h3>
+`
+	 	// Add popup message
+let template24 = `
+
+<h3>Arizona NM USA</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-maria-hupfield" target='_blank'>Research Profile - Dr. Maria Hupfield</a>
+	 </h3>
+ 
+`
+	 	 	// Add popup message
+let template25 = `
+
+<h3>Annadale on Hudson NY USA</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-maria-hupfield" target='_blank'>Research Profile - Dr. Maria Hupfield</a>
+	 </h3>
+ 
+`
+	
+	 	 	// Add popup message
+let template26 = `
+
+<h3>Toronto</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-matthew-stoddard" target='_blank'>Research Profile - Dr. Matthew Stoddard</a></br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-maria-hupfield" target='_blank'>Research Profile - Dr. Maria Hupfield</a>
+ </h3>
+ 
+`
+// Add popup message
+let template27 = `
+
+<h3>Stånga, Gotland</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-harriet-m-sonne-de-torrens" target='_blank'>Research Profile - Harriet M. Sonne de Torrens</a>
+ </h3>
+`
+// Add popup message
+let template28 = `
+
+<h3>Germany</br>
+<a href="https://www.utm.utoronto.ca/dvs/research-profile-harriet-m-sonne-de-torrens" target='_blank'>Research Profile - Harriet M. Sonne de Torrens</a>
+ </h3>
+`
+	
+
+const marker = L.marker([55.462599126101374, 13.749806880955454]).addTo(map);
+	 marker.bindPopup(template);
+	 
+	 const marker1 = L.marker([48.856566545396475, 2.343941957962182]).addTo(map);
+	 marker1.bindPopup(template1);
+	 
+	 const marker2 = L.marker([50.10964691786252, 8.653031134478619]).addTo(map);
+	 marker2.bindPopup(template2);
+	 
+	 const marker3 = L.marker([43.29691657607924, 5.343480769690766]).addTo(map);
+	 marker3.bindPopup(template3);
+	 
+	  const marker4 = L.marker([34.05304008549797, -118.30604655204266]).addTo(map);
+	 marker4.bindPopup(template4);
+	 
+	   const marker5 = L.marker([52.1961511488704, 0.118453794664999221]).addTo(map);
+	 marker5.bindPopup(template5);
+	 
+ const marker6 = L.marker([52.36728464195003, 4.8432448497603025]).addTo(map);
+	 marker6.bindPopup(template6);
+	 
+		 
+	 const marker7 = L.marker([55.328256763766895, 8.7612928394543635]).addTo(map);
+	 marker7.bindPopup(template7);
+	 
+	 const marker8 = L.marker([26.879589896352762, 80.91082706189056]).addTo(map);
+	 marker8.bindPopup(template8);
+	 
+	  const marker9 = L.marker([11.339656608452751, 75.88828682163974]).addTo(map);
+	 marker9.bindPopup(template9);
+	 
+	 const marker10 = L.marker([38.90735206312972, -77.05440476364056]).addTo(map);
+	 marker10.bindPopup(template10);
+	
+	const marker11 = L.marker([45.069774006216065, 7.689040968108419]).addTo(map);
+	 marker11.bindPopup(template11);
+	
+	 const marker12 = L.marker([26.90206451787649, 80.95206373329053]).addTo(map);
+	 marker12.bindPopup(template12);
+	
+	  const marker13 = L.marker([1.3593009196698513, 103.84080026273182]).addTo(map);
+	 marker13.bindPopup(template13);
+	 
+	   const marker14 = L.marker([25.046752519641824, 121.55599273677552]).addTo(map);
+	 marker14.bindPopup(template14);
+	 
+	   const marker15 = L.marker([13.772403102472682, 100.4902226911708]).addTo(map);
+	 marker15.bindPopup(template15);
+	 
+	   const marker16 = L.marker([10.809929146842508, 106.59765750912598]).addTo(map);
+	 marker16.bindPopup(template16);
+
+	   const marker17 = L.marker([42.28135911103212, -83.74587280300489]).addTo(map);
+	 marker17.bindPopup(template17);
+	 
+	   const marker18 = L.marker([40.71679897147022, -74.04015735481244]).addTo(map);
+	 marker18.bindPopup(template18);
+	 
+ const marker19 = L.marker([34.07705875777055, -118.4755062035066]).addTo(map);
+	 marker19.bindPopup(template19);
+	 
+	  const marker20 = L.marker([43.65257910297848, -79.39660985428931]).addTo(map);
+	 marker20.bindPopup(template20);
+	 
+	   const marker21 = L.marker([42.19320949861241, -76.06107906540329]).addTo(map);
+	 marker21.bindPopup(template21);
+	 
+
+  const marker22 = L.marker([37.27206318539228, -122.02041305128753]).addTo(map);
+	 marker22.bindPopup(template22);
+	 
+  const marker23 = L.marker([45.505192065264794, -73.59446898009742]).addTo(map);
+	 marker23.bindPopup(template23);
+	 
+  const marker24 = L.marker([36.733135439088734, -107.96233318761074]).addTo(map);
+	 marker24.bindPopup(template24);
+	 
+	 
+	 	 
+  const marker25 = L.marker([42.0218471541287, -73.91270403213208]).addTo(map);
+	 marker25.bindPopup(template25);
+	 
+	 
+	   const marker26 = L.marker([43.64671430453548, -79.390523589628]).addTo(map);
+	 marker26.bindPopup(template26);
+	 
+	  const marker27 = L.marker([57.28071948482164, 18.47038340888624]).addTo(map);
+	 marker27.bindPopup(template27);
+	 
+	   const marker28 = L.marker([51.27098308041074, 9.360180058038132]).addTo(map);
+	 marker28.bindPopup(template28);
+	 
+	
+	 
+	</script>
+
 </body>
-</html>
+	</html>
