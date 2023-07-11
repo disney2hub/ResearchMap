@@ -2,6 +2,18 @@
 <html>
 <head>
   <title>Interactive Map</title>
+  <style>
+    body{
+        margin: 0; /* Remove default margin */
+    }
+    iframe{      
+        display: block;  /* iframes are inline by default */   
+        height: 100vh;  /* Set height to 100% of the viewport height */   
+        width: 100vw;  /* Set width to 100% of the viewport width */     
+        border: none; /* Remove default border */
+        background: lightyellow; /* Just for styling */
+    }
+</style>
 
 
 </head>
@@ -9,10 +21,7 @@
   <h1>Hello World</h1>
 
 
-  		<iframe id="mapFrame" src="https://disney2hub.github.io/ResearchMap/" 
-	frameborder="0" scrolling="no" style=" display: block; width: 100vw; height: 100vh;"   border="none" background ="lightyellow">
-	</iframe>
- <!-- <iframe src="map.html" width="600px" height="500px"  border="0"></iframe>-->
+ <iframe src="map.html"></iframe>
 
      
 </body>
