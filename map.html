@@ -6,7 +6,13 @@
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
    />
 	
-
+	<style>
+    /* CSS to add scroll to Leaflet pop-up content */
+    .leaflet-popup-content {
+      max-height: 600px; /* Set a maximum height for the content */
+      overflow-y: auto; /* Enable vertical scroll if content exceeds the maximum height */
+    }
+  </style>
  
 	
 </head>
