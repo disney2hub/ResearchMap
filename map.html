@@ -5,17 +5,18 @@
 <title>leaflet example simple map</title>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
    />
-	
 	<style>
     /* CSS to add scroll to Leaflet pop-up content */
     .leaflet-popup-content {
       max-height: 600px; /* Set a maximum height for the content */
       overflow-y: auto; /* Enable vertical scroll if content exceeds the maximum height */
-      background-color: #f2f2f2; /* Customize the background color */
+	  background-color: #f2f2f2; /* Customize the background color */
       color: #333; /* Customize the text color */
       padding: 10px; /* Add padding for better appearance */
     }
   </style>
+	
+
  
 	
 </head>
@@ -51,54 +52,106 @@ let template = `
 // Add popup message
 let template1 = `
 
-<h3>Paris</br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-brian-price" target='_blank'>Research Profile - Dr. Brian Price</a></br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-matthew-stoddard" target='_blank'>Research Profile - Dr. Matthew Stoddard</a>
+<h3>Fieldwork in Paris</h3>
+<div>
+<img width="150" height="150" src="images/Artist&Paris889x500.jpg">
+<p>French cinema, French philosophy</br>
+ 
+<a href="https://www.utm.utoronto.ca/dvs/people/brian-price" target='_blank'>Visit Dr. Brian Price's profile</a>
+    </p>
 
- </h3>
+<h3>Lectures, exhibitions, conferences, workshops</h3>
+
+<img width="150" height="150" src="images/Artist&Paris889x500.jpg">
+<p>
+Institution: Université Paris 1 Panthéon-Sorbonne</br>
+Event title: Demoseries, Lecture</br>
+Title of project: Lecture:  “After the Political, Aesthetic Affiliation”</br>
+<a href="https://www.utm.utoronto.ca/dvs/people/brian-price" target='_blank'>Visit Dr. Brian Price's profile</a>
+    </p>
+
+
+</div>
 
 `
 // Add popup message
 let template2 = `
 
-<h3>Frankfurt</br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-brian-price" target='_blank'>Research Profile - Dr. Brian Price</a>
-</h3>
+<h3>Lectures, exhibitions, conferences, workshops in Frankfurt</h3>
+<div>
+<img width="150" height="150" src="images/Artist&Paris889x500.jpg">
+<p>
+Institution: Goethe-Universität Frankfurt am Main</br>
+Event title: Lecture</br>
+Title of project: Lecture:  “After the Political, Aesthetic Affiliation”</br>
+<a href="https://www.utm.utoronto.ca/dvs/people/brian-price" target='_blank'>Visit Dr. Brian Price's profile</a>
+    </p>
+ </div>
 `
 
 // Add popup message
 let template3 = `
 
-<h3>Marseille</br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-brian-price" target='_blank'>Research Profile - Dr. Brian Price</a></br>
-</h3>
+<h3>Fieldwork in Marseille</h3>
+<div>
+<img width="150" height="150" src="images/Artist&Paris889x500.jpg">
+<p>French cinema, French philosophy</br>
+ 
+<a href="https://www.utm.utoronto.ca/dvs/people/brian-price" target='_blank'>Visit Dr. Brian Price's profile</a>
+    </p>
+
+
+
+</div>
 `
 
 // Add popup message
 let template4 = `
 
-<h3>Los Angeles</br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-brian-price" target='_blank'>Research Profile - Dr. Brian Price</a></br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-louis-kaplan" target='_blank'>Dr. Louis Kaplan Research Profile</a></h3>
+<h3>Fieldwork in Los Angeles</br>
+ <div>
+<img width="150" height="150" src="images/Artist&Paris889x500.jpg">
+<p>The Margaret Herrick Library <br/>
+Production Code</br>
+ 
+<a href="https://www.utm.utoronto.ca/dvs/people/brian-price" target='_blank'>Visit Dr. Brian Price's profile</a>
+    </p>
+
+ 
+</div>
 
 `
 	 
 // Add popup message
 let template5 = `
 
-<h3>Cambridge, England</br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-kajri-jain" target='_blank'>Research Profile - Dr. Kajri Jain</a></br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-brian-price" target='_blank'>Research Profile - Dr. Brian Price</a>
- </h3>
+ 
+<h3>Lectures, exhibitions, conferences, workshops in Cambridge, England</h3>
+<div>
+<img width="150" height="150" src="images/maxresdefault.jpg">
+<p>
+Institution: University of Cambridge</br>
+Event title: Colloquium on Christophe Honoré</br>
+Title of project: Lecture: “How We Don’t Know About Each Other: Cavell and Honoré”</br>
+<a href="https://www.utm.utoronto.ca/dvs/people/brian-price" target='_blank'>Visit Dr. Brian Price's profile</a>
+    </p>
+ </div>
 
 `
 
 // Add popup message
 let template6 = `
 
-<h3>Amsterdam</br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-brian-price" target='_blank'>Research Profile - Dr. Brian Price</a>
-</h3>
+ <h3>Lectures, exhibitions, conferences, workshops in Amsterdam</h3>
+<div>
+<img width="217" height="150" src="images/maxresdefault217x150.jpg">
+<p>
+Institution: University of Amsterdam</br>
+Event title: Lecture</br>
+Title of project: Lecture: “After the Political, Aesthetic Affiliation”</br>
+<a href="https://www.utm.utoronto.ca/dvs/people/brian-price" target='_blank'>Visit Dr. Brian Price's profile</a>
+    </p>
+ </div>
 `
 
 
@@ -156,37 +209,62 @@ let template12 = `
 		// Add popup message
 let template13 = `
 
-<h3>Singapore</br>
+<h3>Fieldwork in Singapore</h3>
+ <div>
+<img width="150" height="150" src="images/Wijaya_images-w150x150.jpg">
+</br>Asian Film Archive and Objectifs <br/>
+My book manuscript, "Luminous Flesh: The Visible and Invisible Worlds of Contemporary Chinese Cinemas," which examines the haunted sites and transmedia possibilities of trans-Chinese cinemas that reveal the fictionality of Chineseness as ethnic, ideological, linguistic, or national affiliation in post-2010 diasporic cinemas of Singapore, Malaysia, Taiwan and Hong Kong.</br>
  
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-elizabeth-wijaya" target='_blank'>Research Profile - Dr. Elizabeth Wijaya</a>
- </h3>
+<a href="https://www.utm.utoronto.ca/dvs/people/elizabeth-wijaya" target='_blank'>Visit Dr. Elizabeth Wijaya's profile</a>
+    </p>
+
+</div>
 `
 	
 		// Add popup message
 let template14 = `
 
-<h3>Taipei</br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-elizabeth-wijaya" target='_blank'>Research Profile - Dr. Elizabeth Wijaya</a>
- </h3>
+<h3>Fieldwork in Taipei</h3>
+
+<div>
+<img width="150" height="150" src="images/landing-desktop_mongrel150x150.jpg">
+</br>Taiwan New Cinema, cinema of Tsai Ming-liang as well as contemporary films in Taiwan by diasporic filmmakers such as Chiang Wei Liang. Dr. Elizabeth Wijaya is the Co-Producer for Chiang Wei Liang’s Mongrelv, shot on location in Taiwan in Spring 2023</br>
+ 
+<a href="https://www.utm.utoronto.ca/dvs/people/elizabeth-wijaya" target='_blank'>Visit Dr. Elizabeth Wijaya's profile</a>
+    </p>
+
 </div>
+ 
 `
 
 	
 		// Add popup message
 let template15 = `
 
-<h3>Bankok</br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-elizabeth-wijaya" target='_blank'>Research Profile - Dr. Elizabeth Wijaya</a>
- </h3>
+<h3>Fieldwork in Bangkok</h3>
+
+<div>
+<img width="150" height="150" src="images/photo_W150x150.jpg">
+</br>Bangkok is an important site for my research on Southeast Asian cinema activities, production and post-production.</br>
+ 
+<a href="https://www.utm.utoronto.ca/dvs/people/elizabeth-wijaya" target='_blank'>Visit Dr. Elizabeth Wijaya's profile</a>
+    
+
+</div>
+ 
 `
 
 		// Add popup message
 let template16 = `
 
-<h3>Ho Chi Minh City,Veitnam</h3>
-<div style="text-align:center">
-    <img width="150" height="150" src="images/testimage.jpeg"><br>
-<a href="https://www.utm.utoronto.ca/dvs" target='_blank'>Ho Chi Minh City,Veitnam</a>
+<h3>Fieldwork in Ho Chi Minh City,Veitnam</h3>
+<div>
+<img width="150" height="150" src="images/images-w1400150x150W.jpg">
+</br>Dr. Elizabeth Wijaya is the Co-Producer of Taste (2021) by Le Bao and Viet and Nam by Truong Minh Quy (in production)</br>
+ 
+<a href="https://www.utm.utoronto.ca/dvs/people/elizabeth-wijaya" target='_blank'>Visit Dr. Elizabeth Wijaya's profile</a>
+    
+
 </div>
 `
 
@@ -194,9 +272,15 @@ let template16 = `
 		// Add popup message
 let template17 = `
 
-<h3>Ann Arbor, Michigan</br>
+<h3>Fieldwork in Ann Arbor, Michigan</h3>
 
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-louis-kaplan" target='_blank'>Research Profile - Dr. Louis Kaplan</a></h3>
+<p>
+    <img width="150" height="150" src="images/Louis_vishniac-1992-231A_449843_displaysize.jpg">
+<p>Frankel Institute for Advanced Jewish Studies, University of Michigan.</br>“Jewish Photographic Humour in Dark Times: Visual First Responders to the Third Reich” in conjunction with the Frankel Institute’s 2023-2024 theme, “Jewish Visual Cultures.”  </br>
+ 
+<a href="https://www.utm.utoronto.ca/dvs/people/louis-kaplan" target='_blank'>Visit Dr. Louis Kaplan's profile</a></p>
+</div>
+
 `
 
 
@@ -207,42 +291,48 @@ let template18 = `
 <h3>Fieldwork in New York</h3>
 
 <div>
-    <img width="150" height="150" src="images/Louis_vishniac-1992-231A_449843_displaysize.jpg">
-<p>YIVO Institute for Jewish Research, Center for Jewish History</br>
+<img width="150" height="150" src="images/Breaking-Protocol_Hupfield_cover468x648.jpg"></br>
+Vera List Center for Art and Politics, New School. Artist Book publication with Inventory Press</br>
  
-<a href="https://www.utm.utoronto.ca/dvs/people/louis-kaplan" target='_blank'>Visit Dr. Louis Kaplan's profile</a></p>
+<a href="https://www.utm.utoronto.ca/dvs/people/maria-hupfield" target='_blank'>Visit Dr. Maria Hupfield's profile</a>
+   
 
 <p>
-    <img width="150" height="150" src="images/Breaking-Protocol_Hupfield_cover468x648.jpg">
-<p>Vera List Center for Art and Politics, New School </br>Artist Book publication with Inventory Press</br>
+    <img width="150" height="150" src="images/Louis_vishniac-1992-231A_449843_displaysize.jpg">
+</br>YIVO Institute for Jewish Research, Center for Jewish History</br>
  
-<a href="https://www.utm.utoronto.ca/dvs/people/maria-hupfield" target='_blank'>Visit Dr. Maria Hupfield's profile</a></p>
+<a href="https://www.utm.utoronto.ca/dvs/people/louis-kaplan" target='_blank'>Visit Dr. Louis Kaplan's profile</a>
+
+</p>
 </div>
-
-
 `
 
 		// Add popup message
 let template19 = `
 
-<h3>Los Angeles</br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-louis-kaplan" target='_blank'>Research Profile - Dr. Louis Kaplan</a></h3>
+<h3>Fieldwork in Los Angeles</h3>
+<div>
+<img width="150" height="150" src="images/Getty_IMG_150x150.jpg">
+<p>Getty Library focussing on Russian-Jewish émigré art historian Leo Steinberg and Hungarian-Jewish émigré photography editor, Stefan Lorant work.</br>
+ 
+<a href="https://www.utm.utoronto.ca/dvs/people/louis-kaplan" target='_blank'>Visit Dr. Louis Kaplan's profile</a>
 
-`
-		// Add popup message
-let template20 = `
-
-<h3>Fox Theatre</br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-matthew-stoddard" target='_blank'>Research Profile - Dr. Matthew Stoddard</a>
- </h3>
-
+</p>
+</div>
 `
 	 
 		// Add popup message
 let template21 = `
 
-<h3>Maine</br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-maria-hupfield" target='_blank'>Research Profile - Dr. Maria Hupfield</a></h3>
+<h3>Fieldwork in Maine NY</h3>
+
+
+ <img width="194" height="150" src="images/MariaSurf-Point-Logo-Full.png">
+<p>Surf Point Foundation</br>Artist Residency July 2023</br>
+ 
+<a href="https://www.utm.utoronto.ca/dvs/people/maria-hupfield" target='_blank'>Visit Dr. Maria Hupfield's profile</a>
+
+
 `
 
 		// Add popup message
@@ -281,11 +371,33 @@ let template25 = `
 	 	 	// Add popup message
 let template26 = `
 
-<h3>Toronto</br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-matthew-stoddard" target='_blank'>Research Profile - Dr. Matthew Stoddard</a></br>
-<a href="https://www.utm.utoronto.ca/dvs/research-profile-dr-maria-hupfield" target='_blank'>Research Profile - Dr. Maria Hupfield</a>
- </h3>
+<h3>Fieldwork in Toronto</h3>
+
+<div>
+ <img width="150" height="150" src="images/Maria.jpg">
+</br>Urban Forestry team, City of Toronto</br>Inaugural Artist in Residency 2023-24</br>
  
+<a href="https://www.utm.utoronto.ca/dvs/people/maria-hupfield" target='_blank'>Visit Dr. Maria Hupfield's profile</a>
+   
+
+<p>
+
+  <img width="150" height="150" src="images/Matt_TBLB_ExteriorFor_the_Love_of_Film_-_jacked150x150.jpg"></br>
+TIFF Bell Lightbox, viewing films related to my courses, especially new Canadian films and political films from throughout film history.
+</br></br>
+
+  <img width="150" height="150" src="images/fox-theatre150x150.jpg"></br>
+Fox Theatre, open since 1914. An invaluable resource for seeing contemporary and classic cinema on the big screen.</br></br>
+
+ <img width="150" height="150" src="images/Cinematheque-Francaise150x150.jpg"></br>
+Cinémathèque Française. One of the great film museums in world, with access to virtually everything I’ve ever needed to read on the art of cinema.</br>
+ 
+<a href="https://www.utm.utoronto.ca/dvs/people/matthew-stoddard" target='_blank'>Visit Dr. Matthew Stoddard's profile</a>
+
+   </p>
+
+</div>
+
 `
 // Add popup message
 let template27 = `
@@ -364,9 +476,7 @@ const marker = L.marker([55.462599126101374, 13.749806880955454]).addTo(map);
  const marker19 = L.marker([34.07705875777055, -118.4755062035066]).addTo(map);
 	 marker19.bindPopup(template19);
 	 
-	  const marker20 = L.marker([43.65257910297848, -79.39660985428931]).addTo(map);
-	 marker20.bindPopup(template20);
-	 
+	  
 	   const marker21 = L.marker([42.19320949861241, -76.06107906540329]).addTo(map);
 	 marker21.bindPopup(template21);
 	 
@@ -401,3 +511,4 @@ const marker = L.marker([55.462599126101374, 13.749806880955454]).addTo(map);
 
 </body>
 	</html>
+
